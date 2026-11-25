@@ -32,7 +32,7 @@
         <fullName>E2E_Single</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>E2E Single</shortDescription>
+        <shortDescription>E2E Single label</shortDescription>
         <value>git-value</value>
     </labels>
 </CustomLabels>
