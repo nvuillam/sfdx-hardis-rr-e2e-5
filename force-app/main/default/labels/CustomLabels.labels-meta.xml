@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>E2E_Endpoint</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>E2E Endpoint</shortDescription>
+        <value>https://git.e2e.example.com</value>
+    </labels>
+    <labels>
+        <fullName>E2E_Issue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>E2E Issue</shortDescription>
+        <value>git-value</value>
+    </labels>
+    <labels>
+        <fullName>E2E_Missing_Secret</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>E2E Missing Secret</shortDescription>
+        <value>git-value</value>
+    </labels>
+    <labels>
+        <fullName>E2E_Secret</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>E2E Secret</shortDescription>
+        <value>git-value</value>
+    </labels>
+    <labels>
+        <fullName>E2E_Single</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>E2E Single</shortDescription>
+        <value>git-value</value>
+    </labels>
+</CustomLabels>

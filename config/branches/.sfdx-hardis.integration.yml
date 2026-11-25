@@ -1,0 +1,6 @@
+mergeTargets:
+  - uat
+replacementRules:
+  - id: e2e-endpoint
+    values:
+      integration: https://int-branch.e2e.example.com

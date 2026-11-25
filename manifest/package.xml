@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>E2EEndpoints</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>E2E_Ends</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>E2E_Perms</members>
+        <name>PermissionSet</name>
+    </types>
+    <version>67.0</version>
+</Package>

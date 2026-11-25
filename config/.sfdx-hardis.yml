@@ -1,0 +1,62 @@
+projectName: sfdx-hardis-rr-e2e
+developmentBranch: integration
+useDeltaDeployment: false
+testLevel: NoTestRun
+replacementRules:
+  # P1: one value per org, the integration value changed by the branch file
+  - id: e2e-endpoint
+    type: xml-value
+    files: "**/labels/CustomLabels.labels-meta.xml"
+    xmlPath: CustomLabels/labels[fullName=E2E_Endpoint]/value
+    values:
+      integration: https://int-project.e2e.example.com
+      default: https://sandbox.e2e.example.com
+    required: true
+  # P2: the same value for every org
+  - id: e2e-single
+    type: xml-value
+    files: "**/labels/CustomLabels.labels-meta.xml"
+    xmlPath: CustomLabels/labels[fullName=E2E_Single]/value
+    value: single-value
+  # P3: a secret read from the CI/CD variable RR_E2E_SECRET_INTEGRATION
+  - id: e2e-secret
+    type: xml-value
+    files: "**/labels/CustomLabels.labels-meta.xml"
+    xmlPath: CustomLabels/labels[fullName=E2E_Secret]/value
+    secret: RR_E2E_SECRET
+  # P4: a secret no CI variable holds: warning, the value of git is deployed
+  - id: e2e-missing-secret
+    type: xml-value
+    files: "**/labels/CustomLabels.labels-meta.xml"
+    xmlPath: CustomLabels/labels[fullName=E2E_Missing_Secret]/value
+    secret: RR_E2E_MISSING
+  # P5: changed for integration by the git provider issue, no commit
+  - id: e2e-issue
+    type: xml-value
+    files: "**/labels/CustomLabels.labels-meta.xml"
+    xmlPath: CustomLabels/labels[fullName=E2E_Issue]/value
+    values:
+      default: project-value
+  # P6: regex find and replace in Apex
+  - id: e2e-apex-host
+    type: text
+    files: "**/classes/E2EEndpoints.cls"
+    find: 'https://dev\.e2e\.example\.com'
+    regex: true
+    values:
+      integration: https://int.e2e.example.com
+      default: https://sandbox.e2e.example.com
+  # P7: remove one user permission, for integration only
+  - id: e2e-remove-view-setup
+    type: xml-remove
+    files: "**/permissionsets/*.permissionset-meta.xml"
+    xmlPath: PermissionSet/userPermissions[name=ViewSetup]
+    includeTargetBranches:
+      - integration
+  # P8: a rule matching nothing, with required: warning in the Pull Request comment
+  - id: e2e-required-no-match
+    type: xml-value
+    files: "**/labels/CustomLabels.labels-meta.xml"
+    xmlPath: CustomLabels/labels[fullName=Does_Not_Exist]/value
+    value: x
+    required: true
